@@ -1,16 +1,6 @@
 <script lang="ts">
-	import {
-		Command,
-		CommandEmpty,
-		CommandGroup,
-		CommandInput,
-		CommandItem
-	} from '$lib/components/ui/command';
-	import {
-		searchIngredients,
-		selectedIngredients,
-		type Ingredient
-	} from '$lib/stores/ingredients.svelte.ts';
+	import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '$lib/components/ui/command';
+	import { type Ingredient, searchIngredients, selectedIngredients } from '$lib/stores/ingredients.svelte.ts';
 	import { slide } from 'svelte/transition';
 
 	let isOpen = $state(false);
@@ -28,8 +18,6 @@
 		searchResults = [];
 		isOpen = false;
 	}
-
-	$inspect(searchResults);
 </script>
 
 <Command class="rounded-lg border shadow-md">
@@ -57,21 +45,21 @@
 </Command>
 
 <style lang="postcss">
-	.overflow-y-auto {
-		scrollbar-width: thin;
-		scrollbar-color: theme(colors.gray.200) transparent;
-	}
+    .overflow-y-auto {
+        scrollbar-width: thin;
+        scrollbar-color: theme(colors.gray.200) transparent;
+    }
 
-	.overflow-y-auto::-webkit-scrollbar {
-		width: 6px;
-	}
+    .overflow-y-auto::-webkit-scrollbar {
+        width: 6px;
+    }
 
-	.overflow-y-auto::-webkit-scrollbar-track {
-		background: transparent;
-	}
+    .overflow-y-auto::-webkit-scrollbar-track {
+        background: transparent;
+    }
 
-	.overflow-y-auto::-webkit-scrollbar-thumb {
-		background-color: theme(colors.gray.200);
-		border-radius: 3px;
-	}
+    .overflow-y-auto::-webkit-scrollbar-thumb {
+        background-color: theme(colors.gray.200);
+        border-radius: 3px;
+    }
 </style>

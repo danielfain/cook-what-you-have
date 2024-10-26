@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { selectedIngredients } from '$lib/stores/ingredients.svelte.ts';
+	import { selectedIngredients } from '$lib/stores/ingredients.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Badge } from '$lib/components/ui/badge';
-	import { Card, CardHeader, CardTitle, CardContent } from '$lib/components/ui/card';
+	import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
 	import { Scale, Trash2 } from 'lucide-svelte';
 	import { slide } from 'svelte/transition';
 
