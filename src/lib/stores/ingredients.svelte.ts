@@ -48,7 +48,27 @@ export const availableIngredients: Ingredient[] = [
 	},
 ];
 
-class SelectedIngredientStore {
+export function searchIngredients(query: string): Ingredient[] {
+	if (!query) {
+		return [];
+	}
+
+	return availableIngredients
+		.filter((ingredient) =>
+			ingredient.searchTerms.some((term) => term.toLowerCase().includes(query.toLowerCase()))
+		)
+		.slice(0, 10);
+}
+
+export function getIngredientsByCategory(categoryId: string): Ingredient[] {
+	return availableIngredients.filter((ingredient) => ingredient.categoryId === categoryId);
+}
+
+export function getCommonIngredients(): Ingredient[] {
+	return availableIngredients.filter((ingredient) => ingredient.isCommon);
+}
+
+class SelectedIngredientsStore {
 	ingredients = $state<Ingredient[]>([]);
 
 	add(ingredient: Ingredient) {
@@ -65,24 +85,8 @@ class SelectedIngredientStore {
 		this.ingredients = [];
 	}
 
-	search(query: string): Ingredient[] {
-		if (!query) {
-			return [];
-		}
-
-		return availableIngredients
-			.filter((ingredient) =>
-				ingredient.searchTerms.some((term) => term.toLowerCase().includes(query.toLowerCase()))
-			)
-			.slice(0, 10);
-	}
-
-	getByCategory(categoryId: string): Ingredient[] {
-		return availableIngredients.filter((ingredient) => ingredient.categoryId === categoryId);
-	}
-
-	getCommonIngredients(): Ingredient[] {
-		return availableIngredients.filter((ingredient) => ingredient.isCommon);
+	size(): number {
+		return this.ingredients.length;
 	}
 
 	get groupedSelected() {
@@ -104,4 +108,4 @@ class SelectedIngredientStore {
 }
 
 // Create a single instance of the manager
-export const selectedIngredients = new SelectedIngredientStore();
+export const selectedIngredients = new SelectedIngredientsStore();

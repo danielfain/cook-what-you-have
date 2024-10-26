@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { selectedIngredients, type Ingredient } from '$lib/stores/ingredients.svelte.ts';
+	import {
+		searchIngredients,
+		selectedIngredients,
+		type Ingredient
+	} from '$lib/stores/ingredients.svelte.ts';
 
 	let ingredientQuery = $state('');
 	let ingredientResults = $state<Ingredient[]>([]);
 
 	function handleInput() {
-		ingredientResults = selectedIngredients.search(ingredientQuery);
+		ingredientResults = searchIngredients(ingredientQuery);
 	}
 
 	function handleAddIngredient(ingredient: Ingredient) {

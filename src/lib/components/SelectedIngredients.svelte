@@ -20,11 +20,11 @@
 	<CardHeader class="flex flex-row items-center justify-between space-y-0 pb-4">
 		<CardTitle class="text-xl font-bold">My Ingredients</CardTitle>
 
-		{#if selectedIngredients.ingredients.length > 0}
+		{#if selectedIngredients.size() > 0}
 			<div class="flex items-center gap-2">
 				<Badge variant="secondary">
 					<Scale class="w-3 h-3 mr-1" />
-					{selectedIngredients.ingredients.length}
+					{selectedIngredients.size()}
 				</Badge>
 				<Button
 					variant="ghost"
@@ -39,7 +39,7 @@
 	</CardHeader>
 
 	<CardContent>
-		{#if selectedIngredients.ingredients.length === 0}
+		{#if selectedIngredients.size() === 0}
 			<div class="flex flex-col items-center justify-center py-8 text-center text-muted-foreground">
 				<div class="mb-2">No ingredients selected yet</div>
 				<div class="text-sm">Search or browse categories to add ingredients</div>
