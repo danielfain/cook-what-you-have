@@ -72,6 +72,8 @@
 	}
 </script>
 
+<h1 class="text-xl font-bold">Browse</h1>
+
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 	{#each categories as category}
 		{@const CategoryIcon = getCategoryIcon(category.id)}

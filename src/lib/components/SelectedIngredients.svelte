@@ -41,8 +41,7 @@
 	<CardContent>
 		{#if selectedIngredients.size() === 0}
 			<div class="flex flex-col items-center justify-center py-8 text-center text-muted-foreground">
-				<div class="mb-2">No ingredients selected yet</div>
-				<div class="text-sm">Search or browse categories to add ingredients</div>
+				<div class="text-sm">No ingredients selected yet</div>
 			</div>
 		{:else}
 			<div class="space-y-6">
