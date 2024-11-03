@@ -1,11 +1,11 @@
 <script lang="ts">
 	import {
-		availableIngredients,
 		type Ingredient,
 		type Category,
-		selectedIngredients,
-		categories
+		selectedIngredients
 	} from '$lib/stores/ingredients.svelte';
+	import { availableIngredients } from '$lib/stores/ingredients';
+	import { categories } from '$lib/stores/categories';
 	import { Badge } from './ui/badge';
 	import { Card } from '$lib/components/ui/card';
 	import { Dialog, DialogContent, DialogHeader, DialogTitle } from '$lib/components/ui/dialog';
