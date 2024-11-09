@@ -22,10 +22,8 @@ export function searchIngredients(query: string): Ingredient[] {
 	}
 
 	return availableIngredients
-		.filter((ingredient) =>
-			ingredient.searchTerms.some((term) => term.toLowerCase().includes(query.toLowerCase()))
-		)
-		.slice(0, 10);
+		.filter((ingredient) => ingredient.searchTerms.some((term) => term.toLowerCase().includes(query.toLowerCase())))
+		.slice(0, 5);
 }
 
 class SelectedIngredientsStore {
